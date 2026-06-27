@@ -4,140 +4,401 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Siege of Sanctum</title>
+    <title>Siege of Sanctum – Official Website</title>
 
     <style>
-        body {
-            margin: 0;
-            font-family: Georgia, serif;
-            background: linear-gradient(135deg, #1f1b16, #3d2b1f);
-            color: #f5e8c8;
+        :root {
+            --bg-dark: #0f1115;
+            --bg-stone: #1b1f27;
+            --bg-card: rgba(17, 20, 28, 0.88);
+            --gold: #d7aa3d;
+            --gold-light: #f1d27a;
+            --text-main: #f4ead2;
+            --text-muted: #c7bfae;
+            --border: rgba(215, 170, 61, 0.45);
+            --red: #7b241c;
         }
 
-        header {
-            background: #2b2016;
-            padding: 60px 20px;
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Georgia, "Times New Roman", serif;
+            background:
+                radial-gradient(circle at top, rgba(215, 170, 61, 0.18), transparent 35%),
+                linear-gradient(135deg, #0f1115 0%, #1d1a16 45%, #090a0d 100%);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        a {
+            color: inherit;
+        }
+
+        .hero {
+            min-height: 92vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             text-align: center;
-            border-bottom: 3px solid #b28b42;
+            padding: 40px 20px;
+            position: relative;
+            overflow: hidden;
+            border-bottom: 2px solid var(--border);
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background:
+                linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.75)),
+                repeating-linear-gradient(
+                    90deg,
+                    rgba(255,255,255,0.025) 0px,
+                    rgba(255,255,255,0.025) 1px,
+                    transparent 1px,
+                    transparent 80px
+                );
+            pointer-events: none;
+        }
+
+        .hero-content {
+            position: relative;
+            max-width: 1000px;
+            z-index: 1;
+        }
+
+        .eyebrow {
+            display: inline-block;
+            color: var(--gold-light);
+            border: 1px solid var(--border);
+            padding: 8px 16px;
+            border-radius: 999px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-size: 13px;
+            margin-bottom: 24px;
+            background: rgba(0, 0, 0, 0.35);
         }
 
         h1 {
             margin: 0;
-            font-size: 54px;
-            color: #d4af37;
-            text-shadow: 2px 2px 5px black;
+            font-size: clamp(46px, 8vw, 96px);
+            line-height: 1;
+            color: var(--gold);
+            text-shadow: 0 8px 20px rgba(0,0,0,0.8);
+            letter-spacing: 1px;
         }
 
-        h2 {
-            color: #d4af37;
+        .subtitle {
+            margin: 24px auto 0;
+            max-width: 760px;
+            font-size: clamp(18px, 2.5vw, 26px);
+            color: var(--text-main);
+        }
+
+        .hero-text {
+            margin: 18px auto 0;
+            max-width: 760px;
+            color: var(--text-muted);
+            font-size: 18px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 16px;
+            margin-top: 36px;
+        }
+
+        .btn {
+            display: inline-block;
+            text-decoration: none;
+            padding: 14px 24px;
+            border-radius: 10px;
+            font-weight: bold;
+            transition: 0.2s ease;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--gold), var(--gold-light));
+            color: #17120b;
+            box-shadow: 0 8px 22px rgba(215, 170, 61, 0.25);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 26px rgba(215, 170, 61, 0.38);
+        }
+
+        .btn-secondary {
+            border: 1px solid var(--border);
+            background: rgba(0,0,0,0.35);
+            color: var(--text-main);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(215, 170, 61, 0.12);
+        }
+
+        .section {
+            padding: 80px 20px;
         }
 
         .container {
-            max-width: 1000px;
-            margin: auto;
-            padding: 40px 20px;
+            max-width: 1150px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 18px;
+            color: var(--gold);
+            font-size: clamp(32px, 5vw, 52px);
+            line-height: 1.1;
+        }
+
+        .section-intro {
+            text-align: center;
+            max-width: 760px;
+            margin: 0 auto 45px;
+            color: var(--text-muted);
+            font-size: 18px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px;
         }
 
         .card {
-            background: rgba(255,255,255,0.05);
-            border: 1px solid #8c6b37;
-            border-radius: 12px;
-            padding: 30px;
-            margin-bottom: 30px;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 18px;
+            padding: 28px;
+            box-shadow: 0 18px 40px rgba(0,0,0,0.28);
         }
 
-        .buttons {
+        .card h3 {
+            color: var(--gold-light);
+            margin-top: 0;
+            font-size: 24px;
+        }
+
+        .card p {
+            color: var(--text-muted);
+            margin-bottom: 0;
+        }
+
+        .feature-icon {
+            font-size: 34px;
+            margin-bottom: 12px;
+        }
+
+        .showcase {
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 28px;
+            align-items: center;
+        }
+
+        .showcase-box {
+            min-height: 320px;
+            border-radius: 22px;
+            border: 1px solid var(--border);
+            background:
+                linear-gradient(135deg, rgba(215,170,61,0.20), rgba(123,36,28,0.18)),
+                rgba(0,0,0,0.35);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 34px;
+            box-shadow: inset 0 0 60px rgba(0,0,0,0.45);
+        }
+
+        .showcase-box span {
+            font-size: 64px;
+        }
+
+        .legal-links {
             display: flex;
             flex-wrap: wrap;
-            gap: 15px;
             justify-content: center;
+            gap: 16px;
             margin-top: 30px;
         }
 
-        .button {
-            background: #b28b42;
-            color: white;
-            text-decoration: none;
-            padding: 15px 25px;
-            border-radius: 8px;
+        .status {
+            display: inline-block;
+            margin-top: 18px;
+            padding: 10px 16px;
+            border-radius: 999px;
+            background: rgba(123, 36, 28, 0.45);
+            border: 1px solid rgba(241, 210, 122, 0.35);
+            color: var(--gold-light);
             font-weight: bold;
-            transition: 0.2s;
-        }
-
-        .button:hover {
-            background: #d4af37;
         }
 
         footer {
+            padding: 38px 20px;
+            border-top: 1px solid var(--border);
             text-align: center;
-            padding: 30px;
-            border-top: 2px solid #8c6b37;
-            color: #b8b8b8;
+            color: var(--text-muted);
+            background: rgba(0,0,0,0.45);
+        }
+
+        footer a {
+            color: var(--gold-light);
+            text-decoration: none;
+            margin: 0 8px;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 850px) {
+            .grid,
+            .showcase {
+                grid-template-columns: 1fr;
+            }
+
+            .hero {
+                min-height: auto;
+                padding: 90px 20px;
+            }
         }
     </style>
-
 </head>
 
 <body>
 
-<header>
+    <header class="hero">
+        <div class="hero-content">
+            <div class="eyebrow">Official Website</div>
 
-    <h1>Siege of Sanctum</h1>
+            <h1>Siege of Sanctum</h1>
 
-    <p>
-        Build your kingdom. Defend your fortress. Conquer your enemies.
-    </p>
+            <p class="subtitle">
+                Build your kingdom. Defend your fortress. Conquer your enemies.
+            </p>
 
-</header>
+            <p class="hero-text">
+                Siege of Sanctum ist ein mobiles Echtzeit-Strategiespiel, in dem du deine Festung errichtest,
+                Ressourcen sammelst, Truppen ausbildest und in spannenden Multiplayer-Schlachten gegen andere Spieler kämpfst.
+            </p>
 
-<div class="container">
+            <div class="hero-buttons">
+                <a class="btn btn-primary" href="#game">Mehr erfahren</a>
+                <a class="btn btn-secondary" href="privacy-policy.html">Datenschutzerklärung</a>
+            </div>
 
-    <div class="card">
-
-        <h2>Über das Spiel</h2>
-
-        <p>
-
-            Siege of Sanctum ist ein mittelalterliches Echtzeit-Strategiespiel
-            für iOS und Android.
-
-            Errichte deine eigene Festung, sammle Ressourcen, bilde mächtige
-            Truppen aus und kämpfe in spannenden Multiplayer-Schlachten gegen
-            Spieler aus aller Welt.
-
-        </p>
-
-    </div>
-
-    <div class="card">
-
-        <h2>Rechtliche Informationen</h2>
-
-        <div class="buttons">
-
-            <a class="button" href="privacy-policy.html">
-                Datenschutzerklärung
-            </a>
-
-            <a class="button" href="terms-of-service.html">
-                Nutzungsbedingungen
-            </a>
-
-            <a class="button" href="imprint.html">
-                Impressum
-            </a>
-
+            <div class="status">
+                Aktuell in Entwicklung
+            </div>
         </div>
+    </header>
 
-    </div>
+    <main>
 
-</div>
+        <section class="section" id="game">
+            <div class="container">
+                <h2 class="section-title">Ein Königreich unter Belagerung</h2>
 
-<footer>
+                <p class="section-intro">
+                    Errichte eine starke Basis, verteidige dein Sanctum und entscheide deine Schlachten mit Strategie,
+                    Timing und der richtigen Armee.
+                </p>
 
-    © 2026 Siege of Sanctum – Created by Florian Jurga
+                <div class="grid">
+                    <div class="card">
+                        <div class="feature-icon">🏰</div>
+                        <h3>Baue deine Festung</h3>
+                        <p>
+                            Platziere Gebäude, sammle Ressourcen und erschaffe eine Verteidigung,
+                            die dem Angriff deiner Gegner standhält.
+                        </p>
+                    </div>
 
-</footer>
+                    <div class="card">
+                        <div class="feature-icon">⚔️</div>
+                        <h3>Führe deine Truppen</h3>
+                        <p>
+                            Nutze Einheiten wie Bogenschützen, Riesen, Drachen und Spezialtruppen,
+                            um gegnerische Festungen zu durchbrechen.
+                        </p>
+                    </div>
+
+                    <div class="card">
+                        <div class="feature-icon">🔥</div>
+                        <h3>Kämpfe in Echtzeit</h3>
+                        <p>
+                            Tritt in schnellen Online-Gefechten gegen andere Spieler an und entscheide,
+                            wann du angreifst und welche Strategie du wählst.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container showcase">
+                <div class="showcase-box">
+                    <div>
+                        <span>🛡️</span>
+                        <h2>Strategy meets Siege Warfare</h2>
+                        <p>
+                            Eine Mischung aus Basisaufbau, Ressourcenmanagement und direktem Echtzeitkampf.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3>Was dich erwartet</h3>
+                    <p>
+                        Siege of Sanctum kombiniert eine taktische Aufbauphase mit einer actionreichen Kampfphase.
+                        Baue deine Wirtschaft auf, sichere deine Verteidigung und greife im richtigen Moment an.
+                    </p>
+                    <p>
+                        Das Spiel wird aktuell für mobile Geräte entwickelt.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <h2 class="section-title">Rechtliche Informationen</h2>
+
+                <p class="section-intro">
+                    Hier findest du die offiziellen rechtlichen Informationen, Datenschutzangaben und Kontaktmöglichkeiten
+                    zur App Siege of Sanctum.
+                </p>
+
+                <div class="legal-links">
+                    <a class="btn btn-primary" href="privacy-policy.html">Datenschutzerklärung</a>
+                    <a class="btn btn-secondary" href="terms-of-service.html">Nutzungsbedingungen</a>
+                    <a class="btn btn-secondary" href="imprint.html">Impressum</a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>© 2026 Siege of Sanctum – Created by Florian Jurga</p>
+        <p>
+            <a href="privacy-policy.html">Datenschutz</a>
+            <a href="terms-of-service.html">Nutzungsbedingungen</a>
+            <a href="imprint.html">Impressum</a>
+        </p>
+    </footer>
 
 </body>
 

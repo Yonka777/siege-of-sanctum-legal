@@ -1,23 +1,144 @@
 <!DOCTYPE html>
 <html lang="de">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Siege of Sanctum</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Georgia, serif;
+            background: linear-gradient(135deg, #1f1b16, #3d2b1f);
+            color: #f5e8c8;
+        }
+
+        header {
+            background: #2b2016;
+            padding: 60px 20px;
+            text-align: center;
+            border-bottom: 3px solid #b28b42;
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 54px;
+            color: #d4af37;
+            text-shadow: 2px 2px 5px black;
+        }
+
+        h2 {
+            color: #d4af37;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: auto;
+            padding: 40px 20px;
+        }
+
+        .card {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid #8c6b37;
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 30px;
+        }
+
+        .buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: center;
+            margin-top: 30px;
+        }
+
+        .button {
+            background: #b28b42;
+            color: white;
+            text-decoration: none;
+            padding: 15px 25px;
+            border-radius: 8px;
+            font-weight: bold;
+            transition: 0.2s;
+        }
+
+        .button:hover {
+            background: #d4af37;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            border-top: 2px solid #8c6b37;
+            color: #b8b8b8;
+        }
+    </style>
+
 </head>
+
 <body>
+
+<header>
 
     <h1>Siege of Sanctum</h1>
 
-    <p>Willkommen auf der offiziellen Website von <strong>Siege of Sanctum</strong>.</p>
+    <p>
+        Build your kingdom. Defend your fortress. Conquer your enemies.
+    </p>
 
-    <h2>Rechtliche Informationen</h2>
+</header>
 
-    <ul>
-        <li><a href="privacy-policy.html">Datenschutzerklärung</a></li>
-        <li><a href="terms-of-service.html">Nutzungsbedingungen</a></li>
-        <li><a href="imprint.html">Impressum</a></li>
-    </ul>
+<div class="container">
+
+    <div class="card">
+
+        <h2>Über das Spiel</h2>
+
+        <p>
+
+            Siege of Sanctum ist ein mittelalterliches Echtzeit-Strategiespiel
+            für iOS und Android.
+
+            Errichte deine eigene Festung, sammle Ressourcen, bilde mächtige
+            Truppen aus und kämpfe in spannenden Multiplayer-Schlachten gegen
+            Spieler aus aller Welt.
+
+        </p>
+
+    </div>
+
+    <div class="card">
+
+        <h2>Rechtliche Informationen</h2>
+
+        <div class="buttons">
+
+            <a class="button" href="privacy-policy.html">
+                Datenschutzerklärung
+            </a>
+
+            <a class="button" href="terms-of-service.html">
+                Nutzungsbedingungen
+            </a>
+
+            <a class="button" href="imprint.html">
+                Impressum
+            </a>
+
+        </div>
+
+    </div>
+
+</div>
+
+<footer>
+
+    © 2026 Siege of Sanctum – Created by Florian Jurga
+
+</footer>
 
 </body>
+
 </html>
